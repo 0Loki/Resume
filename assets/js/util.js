@@ -35,6 +35,128 @@
 	};
 
 	/**
+	 * Pop-up
+	 */
+// Function to open the modal
+document.querySelectorAll('.more-btn').forEach(button => {
+    button.addEventListener('click', function(event) {
+        event.preventDefault();
+        const modalId = this.getAttribute('data-modal');
+        document.getElementById(modalId).style.display = 'block';
+    });
+});
+
+// Function to close the modal
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Close modal when clicking the close button (×)
+document.querySelectorAll('.close').forEach(button => {
+    button.addEventListener('click', function() {
+        const modal = this.closest('.modal');
+        if (modal) modal.style.display = 'none';
+    });
+});
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = 'none';
+    }
+}
+
+//arrow
+window.onload = function() {
+    let slideIndexSmartFarm = 1;
+    let slideIndexInternship = 1;
+    let slideIndexProject = 1;
+
+    showSlidesSmartFarm(slideIndexSmartFarm);
+    showSlidesInternship(slideIndexInternship);
+    showSlidesProject(slideIndexProject);
+
+    function plusSlidesSmartFarm(n) {
+        showSlidesSmartFarm(slideIndexSmartFarm += n);
+    }
+
+    function showSlidesSmartFarm(n) {
+        let slides = document.getElementsByClassName("mySlidesSmartFarm");
+
+        if (n > slides.length) { slideIndexSmartFarm = 1; }
+        if (n < 1) { slideIndexSmartFarm = slides.length; }
+
+        for (let slide of slides) {
+            slide.style.display = "none";
+        }
+
+        slides[slideIndexSmartFarm - 1].style.display = "block";
+    }
+
+    function plusSlidesInternship(n) {
+        showSlidesInternship(slideIndexInternship += n);
+    }
+
+    function showSlidesInternship(n) {
+        let slides = document.getElementsByClassName("mySlidesInternship");
+
+        if (n > slides.length) { slideIndexInternship = 1; }
+        if (n < 1) { slideIndexInternship = slides.length; }
+
+        for (let slide of slides) {
+            slide.style.display = "none";
+        }
+
+        slides[slideIndexInternship - 1].style.display = "block";
+    }
+
+    function plusSlidesProject(n) {
+        showSlidesProject(slideIndexProject += n);
+    }
+
+    function showSlidesProject(n) {
+        let slides = document.getElementsByClassName("mySlidesProject");
+
+        if (n > slides.length) { slideIndexProject = 1; }
+        if (n < 1) { slideIndexProject = slides.length; }
+
+        for (let slide of slides) {
+            slide.style.display = "none";
+        }
+
+        slides[slideIndexProject - 1].style.display = "block";
+    }
+
+    // Event listeners สำหรับ arrow controls
+    document.querySelector('.prevSmartFarm').addEventListener('click', function() {
+        plusSlidesSmartFarm(-1);
+    });
+
+    document.querySelector('.nextSmartFarm').addEventListener('click', function() {
+        plusSlidesSmartFarm(1);
+    });
+
+    document.querySelector('.prevInternship').addEventListener('click', function() {
+        plusSlidesInternship(-1);
+    });
+
+    document.querySelector('.nextInternship').addEventListener('click', function() {
+        plusSlidesInternship(1);
+    });
+
+    document.querySelector('.prevProject').addEventListener('click', function() {
+        plusSlidesProject(-1);
+    });
+
+    document.querySelector('.nextProject').addEventListener('click', function() {
+        plusSlidesProject(1);
+    });
+};
+
+
+
+
+	/**
 	 * Panel-ify an element.
 	 * @param {object} userConfig User config.
 	 * @return {jQuery} jQuery object.

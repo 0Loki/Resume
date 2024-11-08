@@ -37,6 +37,143 @@ ol, ul {
 	list-style: none;
 }
 
+/*pop-up*/
+
+/* Style for the popup modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 750px;
+	border-radius: 25px;
+    animation: fadeIn 0.4s ease; /* Animation added */
+}
+
+/* Close button styling */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Keyframes for fade-in effect */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fix for making arrow buttons float over the images */
+.slideshow-container {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+}
+
+.mySlidesSmartFarm, .mySlidesInternship, .mySlidesProject img {
+    display: none;
+    position: relative;
+}
+
+/* Arrow styles */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    cursor: pointer;
+    padding: 12px;
+    z-index: 10; /* Ensure arrows are above images */
+    border-radius: 50%;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+.next {
+    right: 15px;
+}
+
+.prev {
+    left: 15px;
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+}
+
+/* Fix for Slideshow Images */
+.mySlidesSmartFarm img, .mySlidesInternship img, .mySlidesProject img {
+    width: 100%;
+    height: auto;
+    max-height: 450px;
+    object-fit: contain;
+    display: block;
+}
+
+
+
+
+/* Fade animation */
+.fade {
+    animation: fadeEffect 0.5s;
+}
+
+/* CSS for Slideshow Images */
+.mySlides img {
+    width: 100%;       /* ให้รูปภาพเต็มพื้นที่ที่มีอยู่ */
+    height: 450px;     /* กำหนดความสูงที่ต้องการ */
+    object-fit: contain; /* จัดการให้ภาพครอบคลุมพื้นที่อย่างสมส่วน */
+}
+
+.modal-content iframe {
+    width: 100%;        /* ให้แผนที่ครอบคลุมความกว้างของป๊อปอัป */
+    height: 300px;      /* กำหนดความสูงให้พอดี สามารถปรับได้ตามต้องการ */
+    max-width: 100%;    /* จำกัดความกว้างไม่ให้เกินป๊อปอัป */
+    border: 0;          /* ลบขอบรอบแผนที่ */
+}
+
+
+@keyframes fadeEffect {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+
+
 blockquote, q {
 	quotes: none;
 }
@@ -72,6 +209,16 @@ input, select, textarea {
 	appearance: none;
 }
 
+/* Personal profile image styling */
+#one .image.fit img {
+    max-width: 80%;    /* ลดขนาดของรูปภาพลงเหลือ 80% */
+    border-radius: 10px; /* มุมโค้งเพื่อให้ดูทันสมัย */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงาเพื่อให้รูปภาพดูมีมิติ */
+    margin: auto;
+    display: block;
+}
+
+
 /* Basic */
 
 	html {
@@ -99,7 +246,7 @@ input, select, textarea {
 
 	body, input, select, textarea {
 		color: #666;
-		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-family: sans-serif;
 		font-size: 16pt;
 		font-weight: 300;
 		line-height: 1.65em;
@@ -131,11 +278,12 @@ input, select, textarea {
 
 	p {
 		margin: 0 0 2em 0;
+		font-size: 1em;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #555;
-		line-height: 1em;
+		line-height: 1.5em;
 		margin: 0 0 1em 0;
 	}
 
