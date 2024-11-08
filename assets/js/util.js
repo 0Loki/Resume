@@ -126,7 +126,7 @@ window.onload = function() {
 
         slides[slideIndexProject - 1].style.display = "block";
     }
-
+	/** */
     // Event listeners สำหรับ arrow controls
     document.querySelector('.prevSmartFarm').addEventListener('click', function() {
         plusSlidesSmartFarm(-1);
